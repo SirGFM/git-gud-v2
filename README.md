@@ -1,0 +1,3 @@
+# Git Gud (v2)
+
+Yet another attempt at making a talk explaining git...
