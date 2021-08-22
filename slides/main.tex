@@ -1,0 +1,35 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\lstset{
+    frame=single
+}
+
+% TODO Check https://pt.overleaf.com/learn/latex/Beamer
+
+%Information to be included in the title page:
+\title{Git Gud (v2)}
+\author{Gabriel Francisco Mandaji}
+\date{2021}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection,subsectionstyle=hide]
+    \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[subsectionstyle=hide]
+\end{frame}
+
+\input{slides/01-intro.tex}
+
+\end{document}
