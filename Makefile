@@ -10,6 +10,7 @@ all: out/git-gud.pdf
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 
 DEPS := $(call rwildcard, slides/, *.tex)
+DEPS := $(DEPS) $(call rwildcard, imgs/, *.png)
 
 # Regenerate the slides if any file changes
 #
