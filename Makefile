@@ -1,5 +1,7 @@
 
-all: out/git-gud.pdf
+all: out/git-gud.pdf images
+
+.PHONY: images all
 
 # Recursive wildcard from https://stackoverflow.com/a/18258352
 #
@@ -25,6 +27,13 @@ out/git-gud.pdf: slides/main.tex $(DEPS) | out/.mkdir
 	pdflatex -halt-on-error -output-directory=out $<
 	pdflatex -halt-on-error -output-directory=out $<
 	mv $(<:slides/%.tex=out/%.pdf) $@
+
+images: out/img/.timestamp
+
+out/img/.timestamp: out/git-gud.pdf | out/img/.mkdir
+	convert -density 204 $< $(@D)/img.png
+	@ touch out/img/.timestamp
+	@ echo "Images generated at $(@D)"
 
 # Automatically creates a directory.
 %.mkdir:
